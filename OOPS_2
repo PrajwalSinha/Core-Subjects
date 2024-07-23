@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+class Student{
+  public:
+  int rollno;//Public Attribute
+  void print(){ //Public function
+    cout<<"RollNo: "<<rollno<<endl;
+  }
+};
+int main(){
+  Student s1;
+  s1.rollno = 10; //Error
+  s1.print(); //Error
+}
