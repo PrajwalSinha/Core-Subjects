@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class A{
+  private: //only in class A
+    int x;
+  public: //Anywhere
+    int y;
+  protected: //In class A and child classes of A
+    int z;
+
+};
+class B: public A{ // ALL THE ACCESS SPECIFIERS REMAINS AS SUCH
+  void fun(){
+    //x = 10; //Error  (PRIVATE)
+    y = 20; //(PUBLIC)
+    z = 30; //(PROTECTED)
+  }
+};
+class C: public B{
+  void fun2(){
+    z = 50;
+  }
+};
+class D: private A{ //all access specifiers changes to private
+ // x = 10; //private
+  //y = 20; //private
+  //z = 30; //private
+};
+class E: protected A{ // Private remains as such, others change to protected
+  void fun(){
+    //x = 10; // private
+    y = 20;
+    z = 30; //can be accessed inside class or child but not in main
+  }
+};
+int main(){
+  A obj;
+  //obj.x = 1; //Error
+  obj.y = 2;   //No error
+  //obj.z = 3; //Error
+ 
+
+}
