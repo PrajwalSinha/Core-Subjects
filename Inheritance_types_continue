@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class A{
+  public:
+  void fun1(){
+    cout<<"In class A function 1"<<endl;
+  }
+  void fun2(){
+    cout<<"In class A function 2"<<endl;
+  }
+};
+class B{
+  public:
+  void fun1(){
+    cout<<"In class B function 1"<<endl;
+  }
+  void fun3(){
+    cout<<"In class B function 3"<<endl;
+  }
+};
+class C: public A, public B{
+
+};
+int main(){
+  C obj;
+  obj.fun2();
+  obj.fun3();
+  //obj.fun1(); //error - ambiguous
+  obj.A::fun1(); //fun1 in the scope of class A
+  obj.B::fun1(); //scope resolution operator
+  
+}
