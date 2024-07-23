@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Student{
+public:
+  int rollno;//attriute
+  void print(){//fuction
+    cout<<"RollNo: "<<rollno<<endl;
+  }
+  Student(){
+    cout<<"Default Constructor is called"<<endl;
+  }
+  Student(int rollno){
+    cout<<"Parameterized constructor is called"<<endl;
+    this->rollno = rollno;
+  }
+  int Func(){
+    return this->rollno; //to remove ambiguity
+  }
+};
+int main(){
+  Student s1;
+  s1.rollno = 12;
+  s1.print();
+  Student s2;
+  s2.rollno = 15;
+  s2.print();
+  Student *s3;
+  s3->rollno;
+  s3->print();
+  //with pointers we will be using arrow operator and with datatype we will be using dot operator
+  //constructor is called once the object is created and its name is same as classname.
+  Student s4(10);
+  s4.print();
+  Student s5(75);
+  s5.print();
+  Student s6(50);
+  cout<<s1.Func();
+}
