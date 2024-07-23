@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class A{
+  public:
+  int x;
+  A(){
+    cout<<"Default Constructor of A"<<endl;
+  }
+  A(int x){
+    this->x = x;
+    cout<<"Parametrised Constructor of A"<<endl;
+  }
+};
+class B: public A{
+  public:
+  int y;
+  B(){
+    cout<<"Default Constructor of B"<<endl;
+  }
+  B(int x,int y):A(x){ //passing the parameter of a
+    this->y = y;
+    cout<<"Parametrised Constructor of B"<<endl;
+  }
+};
+int main(){
+  //A obj; //constructor of A as output
+  //B obj1; // consstructor of A and B as output
+  //B obj1; //Default consstructor of A and B as output
+  B obj(20,30); //Default constructor of A and parametrised constructor of B
+  cout<<obj.x<<" "<<obj.y;
+
+}
