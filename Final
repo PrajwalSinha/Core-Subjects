@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+class A{
+  public:
+  void fun(){
+    cout<<"Function of class A"<<endl;
+  }
+};
+class B: public A{
+  public:
+  void fun(){//function overriding when there is same function in parent and child class
+    cout<<"Function of class B"<<endl;
+  }
+};
+
+int main(){
+  B obj;
+  obj.fun(); //function of class B
+  obj.A::fun(); //in order to use function of class A we use a scope resolution operator
+  //function overiding is example of polymorphism
+}
